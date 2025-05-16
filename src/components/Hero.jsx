@@ -53,7 +53,7 @@ const Hero = () => {
               variants={item}
               className="text-lg md:text-xl text-muted-foreground mb-8 max-w-lg"
             >
-              Professional tiling services by DMKR.co.uk for residential and commercial projects. 
+              Professional tiling services by DMKR for residential and commercial projects. 
               Quality craftsmanship, premium materials, and exceptional results.
             </motion.p>
             
@@ -78,7 +78,7 @@ const Hero = () => {
               </div>
               <div className="flex items-center gap-2">
                 <CheckCircle className="h-5 w-5 text-indigo-400" />
-                <span className="text-sm">5-Year Warranty</span>
+                <span className="text-sm">3-Year Warranty</span>
               </div>
               <div className="flex items-center gap-2">
                 <CheckCircle className="h-5 w-5 text-indigo-400" />

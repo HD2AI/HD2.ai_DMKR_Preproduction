@@ -59,9 +59,9 @@ const AboutPage = () => {
         transition={{ delay: 0.5, duration: 0.5 }}
         className="prose prose-invert max-w-none lg:prose-lg text-muted-foreground"
       >
-        <p>At DMKR.co.uk, we believe that the right tiling can completely redefine a space. Whether it's a sleek, modern kitchen backsplash, a luxurious bathroom retreat, or a durable and stylish commercial floor, we approach every project with the same level of dedication and attention to detail.</p>
+        <p>At DMKR, we believe that the right tiling can completely redefine a space. Whether it's a sleek, modern kitchen backsplash, a luxurious bathroom retreat, or a durable and stylish commercial floor, we approach every project with the same level of dedication and attention to detail.</p>
         <p>We work closely with homeowners, designers, and contractors, offering expert advice and guidance from material selection through to final installation. Our commitment to using premium materials and proven techniques ensures a finish that is not only beautiful but also built to last. We stand behind our work with a comprehensive warranty, giving you peace of mind.</p>
-        <p>Thank you for considering DMKR.co.uk for your next tiling project. We look forward to helping you bring your vision to life.</p>
+        <p>Thank you for considering DMKR for your next tiling project. We look forward to helping you bring your vision to life.</p>
       </motion.div>
     </div>
   );
