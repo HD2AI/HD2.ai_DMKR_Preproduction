@@ -133,7 +133,7 @@ const Pricing = () => {
               </div>
               <div className="mb-6">
                 <div className="flex items-baseline">
-                  <span className="text-4xl font-bold">${plan.price}</span>
+                  <span className="text-4xl font-bold">£{plan.price}</span>
                   <span className="text-muted-foreground ml-2">/ sqm</span>
                 </div>
               </div>
