@@ -37,6 +37,36 @@
   }
 }
 
+/* Dark mode styles */
+@layer base {
+  body.dark {
+    --background: 20 14.3% 4.1%; /* Slightly different dark background */
+    --foreground: 60 9.1% 97.8%; /* Light text */
+
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+
+    /* Primary color might stay the same or a dark mode variant */
+    --primary: 252 87% 67%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+  }
+}
+
 @layer base {
   * {
     @apply border-border;

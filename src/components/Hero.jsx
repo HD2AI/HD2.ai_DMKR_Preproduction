@@ -104,7 +104,7 @@ const Hero = () => {
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-indigo-400"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"></path><path d="m9 12 2 2 4-4"></path></svg>
                 </div>
                 <div>
-                  <h3 className="text-sm font-medium">Trusted by 500+ Homeowners</h3>
+                  <h3 className="text-sm font-medium">Trusted by 200+ Homeowners</h3>
                   <p className="text-xs text-muted-foreground mt-1">Join our satisfied customers with premium tiling solutions</p>
                 </div>
               </div>

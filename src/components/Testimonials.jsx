@@ -1,39 +1,66 @@
 
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Star } from 'lucide-react';
 
-const Testimonials = () => {
+import Modal from './Modal'; // Import the Modal component
+const Testimonials = () => { 
   const testimonials = [
     {
       name: 'Sarah Johnson',
       role: 'Homeowner',
-      image: 'woman-homeowner',
-      content: 'TileMaster Pro transformed our outdated bathroom into a modern oasis. The attention to detail and craftsmanship exceeded our expectations. Highly recommend!',
+      image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29329?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8d29tYW4lMjBwb3J0cmFpdHxlbnwwfHwwf18%3D',
+      content: 'DMKR.co.uk transformed our outdated bathroom into a modern oasis. The attention to detail and craftsmanship exceeded our expectations. Highly recommend!',
       rating: 5
     },
     {
       name: 'Michael Chen',
       role: 'Interior Designer',
-      image: 'male-designer',
-      content: 'As an interior designer, I\'ve worked with many tiling companies, but TileMaster Pro stands out for their precision and reliability. They\'re my go-to for all client projects.',
+      image: 'https://images.unsplash.com/photo-1564564321837-a57b7070ac4f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fG1hbiUyMHBvcnRyYWl0fGVufDB8fDB8fA%3D%3D',
+      content: 'As an interior designer, I\'ve worked with many tiling companies, but DMKR.co.uk stands out for their precision and reliability. They\'re my go-to for all client projects.',
       rating: 5
     },
     {
-      name: 'Emma Rodriguez',
-      role: 'Restaurant Owner',
-      image: 'woman-business-owner',
-      content: 'The team at TileMaster Pro completed our restaurant renovation on time and within budget. The custom mosaic work they did is now the highlight of our dining area!',
-      rating: 4
-    },
-    {
-      name: 'David Thompson',
+      name: 'Anthony Hines',
       role: 'Property Developer',
-      image: 'male-property-developer',
-      content: 'We\'ve used TileMaster Pro for multiple development projects. Their consistent quality and professionalism make them a valuable partner for our luxury builds.',
+      image: 'https://images.unsplash.com/photo-1639723281234-b010287598a5?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzZ8fGJ1c2luZXNzJTIwbWFufGVufDB8fDB8fA%3D%3D',
+      content: 'DMKR.co.uk\'s tiling work on our recent development was top-notch. Their efficiency and attention to detail helped us stay on schedule and deliver a high-quality finish.',
+      rating: 5
+    },
+ {
+      name: 'David Miller',
+      role: 'Supermarket Manager',
+      image: 'https://images.unsplash.com/photo-1628157588525-cd2fd53fc02c?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzV8fG1hbiUyMHdvcmtpbmd8ZW58MHx8MHx8fDA%3D',
+      content: 'DMKR.co.uk did an excellent job tiling our supermarket in Leicester. They were very efficient and made sure everything was cleaned up thoroughly before the store reopened.',
+      rating: 5
+    },
+ {
+      name: 'Mark Williams',
+      role: 'Customer',
+      image: 'https://images.unsplash.com/photo-1599566150163-c68e19ee19f1?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDd8fG1hbiUyMHBvcnRyYWl0fGVufDB8fDB8fA%3D%3D',
+      content: 'We hired DMKR.co.uk to retile a section of our supermarket floor. They worked quickly and with minimal disruption, ensuring we could continue trading with little impact. Great job!',
+      rating: 5
+    },
+ {
+      name: 'Jason Douglas',
+      role: 'Property Developer',
+      image: 'https://images.unsplash.com/photo-1631484900054-43632e888725?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NjR8fGJ1c2luZXNzJTIwbWFufGVufDB8fDB8fA%3D%3D',
+      content: 'We\'ve used DMKR.co.uk for multiple development projects. Their consistent quality and professionalism make them a valuable partner for our luxury builds.',
       rating: 5
     }
   ];
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedImage, setSelectedImage] = useState('');
+
+  const openModal = (imageUrl) => {
+    setSelectedImage(imageUrl);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setSelectedImage('');
+  };
 
   const container = {
     hidden: { opacity: 0 },
@@ -52,7 +79,8 @@ const Testimonials = () => {
   };
 
   return (
-    <section id="testimonials" className="py-20 relative overflow-hidden gradient-bg">
+    <>
+    <section id="testimonials" className="py-20 relative overflow-hidden gradient-bg"> 
       <div className="blur-overlay top-20 left-[10%]"></div>
       <div className="blur-overlay bottom-20 right-[30%]"></div>
       
@@ -77,13 +105,13 @@ const Testimonials = () => {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-2 gap-8"
+          className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 gap-8"
         >
           {testimonials.map((testimonial, index) => (
-            <motion.div
+            <motion.div 
               key={index}
               variants={item}
-              className="testimonial-card bg-background/10 backdrop-blur-sm rounded-xl p-6 border border-white/10"
+              className="testimonial-card bg-background/10 backdrop-blur-sm rounded-xl p-6 border border-white/10 flex flex-col w-full flex-shrink-0" // Added flex flex-col, w-full, flex-shrink-0
             >
               <div className="flex items-center gap-4 mb-4">
                 <div className="h-12 w-12 rounded-full overflow-hidden bg-indigo-800/50">
@@ -127,16 +155,18 @@ const Testimonials = () => {
                 {[
                   'Modern kitchen backsplash',
                   'Luxury bathroom renovation',
-                  'Outdoor patio tiling',
                   'Commercial restaurant floor',
-                  'Custom mosaic shower',
-                  'Minimalist floor design'
-                ].map((project, i) => (
-                  <div key={i} className="relative h-24 rounded-lg overflow-hidden group">
-                    <img
-                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110" 
-                      alt={project}
-                      src="https://images.unsplash.com/photo-1569462989100-fc19203374cc" />
+                  'Outdoor patio tiling',
+                  'Minimalist floor design',
+                ].map((project, i) => ( <div
+ key={i}
+ className="relative h-24 rounded-lg overflow-hidden group cursor-pointer" // Add cursor-pointer for visual indication
+ onClick={() => openModal("https://images.unsplash.com/photo-1569462989100-fc19203374cc")} // Call openModal with image URL
+ >
+ <img
+ className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+ alt={project}
+ src="https://images.unsplash.com/photo-1569462989100-fc19203374cc" />
                     <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                       <span className="text-xs font-medium text-white">View</span>
                     </div>
@@ -145,7 +175,7 @@ const Testimonials = () => {
               </div>
             </div>
             <div className="flex flex-col items-center text-center">
-              <div className="text-5xl font-bold gradient-text mb-2">500+</div>
+              <div className="text-5xl font-bold gradient-text mb-2">200+</div>
               <p className="text-lg font-medium mb-1">Completed Projects</p>
               <p className="text-sm text-muted-foreground">Across residential and commercial spaces</p>
             </div>
@@ -153,7 +183,13 @@ const Testimonials = () => {
         </motion.div>
       </div>
     </section>
-  );
+    {/* Render the Modal component */}
+    <Modal isOpen={isModalOpen} onClose={closeModal}>
+      {/* Modal content - display the selected image */}
+      <img src={selectedImage} alt="Project Image" className="max-w-full max-h-[80vh] object-contain" />
+    </Modal>
+    </>
+ );
 };
 
 export default Testimonials;

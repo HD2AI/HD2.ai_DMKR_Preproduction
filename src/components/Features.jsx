@@ -32,8 +32,8 @@ const Features = () => {
     },
     {
       icon: <Shield className="h-10 w-10 text-indigo-400" />,
-      title: 'Guaranteed Quality',
-      description: 'All our work comes with a 5-year warranty for your peace of mind.'
+      title: 'Guaranteed Quality', 
+      description: 'All our work comes with a 3-year warranty for your peace of mind.'
     }
   ];
 
@@ -112,7 +112,6 @@ const Features = () => {
                 {[
                   'Bathroom and kitchen tiling',
                   'Floor installations',
-                  'Custom mosaic designs',
                   'Outdoor tiling solutions',
                   'Commercial projects'
                 ].map((item, i) => (

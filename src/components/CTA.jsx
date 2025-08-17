@@ -102,7 +102,7 @@ const CTA = () => {
                 </div>
                 <div>
                   <h3 className="font-medium">Call Us</h3>
-                  <a href="tel:5551234567" className="text-muted-foreground hover:text-foreground">(555) 123-4567</a>
+                  <a href="tel:5551234567" className="text-muted-foreground hover:text-foreground">(0) 7392-556260</a>
                   <p className="text-sm text-muted-foreground">Mon-Fri: 8am-6pm</p>
                 </div>
               </div>
@@ -123,9 +123,9 @@ const CTA = () => {
                   <MapPin className="h-5 w-5 text-indigo-400" />
                 </div>
                 <div>
-                  <h3 className="font-medium">Visit Our Showroom</h3>
-                  <p className="text-muted-foreground">123 Tile Street, Suite 100</p>
-                  <p className="text-sm text-muted-foreground">Open: Mon-Sat, 10am-5pm</p>
+                  <h3 className="font-medium">SITE VISISTS BY APPOINTMENT ONLY</h3>
+                  <p className="text-muted-foreground">The office, 260 Keldregate</p>
+                  <p className="text-sm text-muted-foreground">Open: Mon-Sat, 8am-6pm</p>
                 </div>
               </div>
             </div>

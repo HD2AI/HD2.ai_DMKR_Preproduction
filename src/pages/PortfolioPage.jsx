@@ -4,14 +4,14 @@ import { motion } from 'framer-motion';
 
 const PortfolioPage = () => {
   const projects = [
-    { id: 1, title: 'Modern Bathroom Oasis', category: 'Bathroom', imageAlt: 'Modern bathroom with grey tiles and walk-in shower', imageDesc: 'Ultra high-resolution photo of a luxurious modern bathroom featuring large-format grey porcelain tiles, a glass walk-in shower, and sleek chrome fixtures.' },
-    { id: 2, title: 'Sleek Kitchen Backsplash', category: 'Kitchen', imageAlt: 'White subway tile kitchen backsplash', imageDesc: 'Photo-realistic image of a bright kitchen with a clean white subway tile backsplash, quartz countertops, and stainless steel appliances.' },
-    { id: 3, title: 'Elegant Living Room Floor', category: 'Floor', imageAlt: 'Large format porcelain tiles in a living room', imageDesc: 'High-res photo showcasing elegant large-format marble-effect porcelain floor tiles in a spacious, well-lit living room setting.' },
-    { id: 4, title: 'Custom Mosaic Shower Niche', category: 'Bathroom', imageAlt: 'Intricate mosaic tile design in a shower niche', imageDesc: 'Detailed close-up photo of a custom-designed intricate glass mosaic tile pattern inside a recessed shower niche.' },
-    { id: 5, title: 'Durable Outdoor Patio', category: 'Outdoor', imageAlt: 'Natural stone tiles on an outdoor patio', imageDesc: 'High-resolution image of a stylish outdoor patio area paved with durable, non-slip natural slate stone tiles, furnished with outdoor seating.' },
-    { id: 6, title: 'Restaurant Feature Wall', category: 'Commercial', imageAlt: 'Textured tile feature wall in a restaurant', imageDesc: 'Photo-realistic depiction of a trendy restaurant interior highlighting a feature wall covered in textured, geometric ceramic tiles.' },
-    { id: 7, title: 'Minimalist Entryway Floor', category: 'Floor', imageAlt: 'Polished concrete look tiles in an entryway', imageDesc: 'Ultra high-res photo of a minimalist house entryway featuring large, polished concrete-effect floor tiles for a seamless look.' },
-    { id: 8, title: 'Luxury Master Bath', category: 'Bathroom', imageAlt: 'Marble tiles in a luxurious master bathroom', imageDesc: 'Stunning high-resolution photograph of a luxury master bathroom fully tiled with Calacatta marble, featuring a freestanding tub and double vanity.' },
+    { id: 1, title: 'Luxury Bathroom Renovation', category: 'Bathroom', imageUrl: 'https://images.unsplash.com/photo-1584622650111-9da237120b5e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80', imageAlt: 'Luxurious bathroom with large format marble tiles', imageDesc: 'Showcasing expert craftsmanship with premium marble tiles for a durable and elegant finish.' },
+    { id: 2, title: 'Modern Kitchen Backsplash', category: 'Kitchen', imageUrl: 'https://images.unsplash.com/photo-1616112868599-36782245735b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80', imageAlt: 'Contemporary kitchen with geometric tile backsplash', imageDesc: 'Timely completion of a custom-designed backsplash using premium geometric tiles, adding unique style.' },
+    { id: 3, title: 'Durable Garage Floor', category: 'Floor', imageUrl: 'https://images.unsplash.com/photo-1600585152915-d08a228c8d52?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80', imageAlt: 'Hard-wearing tiled garage floor', imageDesc: 'Robust floor installation using high-quality, durable tiles built to last, showcasing our guaranteed quality.' },
+    { id: 4, title: 'Chic Patio Tiling', category: 'Outdoor', imageUrl: 'https://images.unsplash.com/photo-1594359715953-cb511b94e761?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80', imageAlt: 'Stylish outdoor patio with large format tiles', imageDesc: 'Comprehensive service from design to installation for a beautiful and durable outdoor space.' },
+    { id: 5, title: 'Commercial Office Flooring', category: 'Commercial', imageUrl: 'https://images.unsplash.com/photo-1588776537401-efbf3a0048f4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80', imageAlt: 'Modern office with tiled flooring', imageDesc: 'Efficient and timely completion of a large-scale commercial flooring project, minimizing disruption.' },
+    { id: 6, title: 'Unique Shower Enclosure', category: 'Bathroom', imageUrl: 'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80', imageAlt: 'Shower with creatively tiled walls', imageDesc: 'Expert craftsmanship in creating a custom design for a unique and functional shower enclosure.' },
+    { id: 7, title: 'Restaurant Kitchen Walls', category: 'Commercial', imageUrl: 'https://images.unsplash.com/photo-1616112868599-36782245735b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80', imageAlt: 'Tiled walls in a commercial kitchen', imageDesc: 'Using premium, easy-to-clean tiles for a hygienic and durable commercial kitchen environment.' },
+    { id: 8, title: 'Residential Hallway Floor', category: 'Floor', imageUrl: 'https://images.unsplash.com/photo-1621984676971-b86b6c4a9d37?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80', imageAlt: 'Tiled hallway floor in a modern home', imageDesc: 'Flawless floor installation with attention to detail, ensuring a smooth and aesthetically pleasing finish.' },
   ];
 
   const container = {
@@ -55,7 +55,7 @@ const PortfolioPage = () => {
           <motion.div
             key={project.id}
             variants={item}
-            className="group relative overflow-hidden rounded-lg shadow-lg"
+          className="group relative overflow-hidden rounded-lg shadow-lg cursor-pointer"
           >
             <img  
               class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105"

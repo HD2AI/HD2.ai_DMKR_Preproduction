@@ -8,6 +8,7 @@ import { Menu, X } from 'lucide-react';
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
@@ -21,6 +22,11 @@ const Navbar = () => {
 
   useEffect(() => {
     setMobileMenuOpen(false); // Close mobile menu on route change
+  }, [location]);
+
+  useEffect(() => {
+    // Apply initial theme based on state
+    document.body.classList.toggle('dark', isDarkMode);
   }, [location]);
 
   const navLinks = [
@@ -50,6 +56,11 @@ const Navbar = () => {
     }
   };
 
+  const handleThemeToggle = () => {
+    setIsDarkMode(!isDarkMode);
+    document.body.classList.toggle('dark');
+  };
+
 
   return (
     <header
@@ -63,7 +74,11 @@ const Navbar = () => {
         <div className="flex h-16 items-center justify-between">
           <div className="flex items-center">
             <Link to="/" className="flex items-center space-x-2">
-              <span className="text-2xl font-bold gradient-text">DMKR.co.uk</span>
+              <img
+                src="/dmkr-logo.png"
+                alt="DMKR logo"
+ className="h-8 w-auto filter brightness-[2] invert hue-rotate-[260deg] saturate-[5] drop-shadow-[0_0_5px_rgba(139,92,246,0.7)]" /> {/* Adjusted size and applied filters for visibility and color */}
+ <span className="text-lg font-bold text-white drop-shadow-[0_0_5px_rgba(255,255,255,0.5)]">TilingByDMKR.co.uk</span> {/* Added back header text and styled for contrast */}
             </Link>
           </div>
 
