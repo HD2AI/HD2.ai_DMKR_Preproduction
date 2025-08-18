@@ -2,10 +2,11 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Building, Users, Target } from 'lucide-react';
+import SimpleImage from '@/components/SimpleImage';
 
 const AboutPage = () => {
   return (
-    <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+    <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16 md:pt-32 md:pb-24">
       <motion.div
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -26,10 +27,14 @@ const AboutPage = () => {
         transition={{ delay: 0.2, duration: 0.5 }}
         className="relative h-64 md:h-96 rounded-lg overflow-hidden mb-16"
       >
-        <img
+        <SimpleImage
           src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80"
           alt="Professional tiling team at work"
           className="w-full h-full object-cover"
+          showPlaceholder={true}
+          placeholderType="hero"
+          placeholderText="Our Team"
+          onError={() => console.error('About page image failed to load')}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-background/50 to-transparent"></div>
       </motion.div>

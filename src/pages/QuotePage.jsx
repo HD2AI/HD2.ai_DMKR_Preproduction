@@ -6,7 +6,7 @@ const QuotePage = () => {
   return (
     // We can reuse the CTA component as it already contains the form and contact info
     // Or create a dedicated layout if needed
-    <div className="pt-10"> 
+    <div className="pt-24 md:pt-32"> 
       <CTA />
     </div>
   );

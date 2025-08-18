@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import { useToast } from '@/components/ui/use-toast';
 import { ArrowRight, Phone, Mail, MapPin } from 'lucide-react';
 import { supabase } from '@/lib/supabaseClient';
+import { sanitizeInput, isValidEmail, isValidPhoneNumber, formRateLimiter } from '@/lib/security';
 
 const CTA = () => {
   const { toast } = useToast();
@@ -20,9 +21,10 @@ const CTA = () => {
 
   const handleInputChange = (e) => {
     const { id, value } = e.target;
+    const sanitizedValue = sanitizeInput(value);
     setFormData((prevData) => ({
       ...prevData,
-      [id]: value,
+      [id]: sanitizedValue,
     }));
   };
 
@@ -30,11 +32,47 @@ const CTA = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
+    // Rate limiting check
+    const clientId = formData.email || 'anonymous';
+    if (!formRateLimiter.isAllowed(clientId)) {
+      const remainingTime = Math.ceil(formRateLimiter.getRemainingTime(clientId) / 1000 / 60);
+      toast({
+        variant: "destructive",
+        title: "Too Many Requests",
+        description: `Please wait ${remainingTime} minutes before submitting again.`,
+      });
+      setIsSubmitting(false);
+      return;
+    }
+
+    // Validation
     if (!formData.name || !formData.email || !formData.message) {
       toast({
         variant: "destructive",
         title: "Missing Information",
         description: "Please fill in your name, email, and project details.",
+      });
+      setIsSubmitting(false);
+      return;
+    }
+
+    // Email validation
+    if (!isValidEmail(formData.email)) {
+      toast({
+        variant: "destructive",
+        title: "Invalid Email",
+        description: "Please enter a valid email address.",
+      });
+      setIsSubmitting(false);
+      return;
+    }
+
+    // Phone validation (if provided)
+    if (formData.phone && !isValidPhoneNumber(formData.phone)) {
+      toast({
+        variant: "destructive",
+        title: "Invalid Phone Number",
+        description: "Please enter a valid UK phone number.",
       });
       setIsSubmitting(false);
       return;
@@ -123,7 +161,7 @@ const CTA = () => {
                   <MapPin className="h-5 w-5 text-indigo-400" />
                 </div>
                 <div>
-                  <h3 className="font-medium">SITE VISISTS BY APPOINTMENT ONLY</h3>
+                  <h3 className="font-medium">SITE VISITS BY APPOINTMENT ONLY</h3>
                   <p className="text-muted-foreground">The office, 260 Keldregate</p>
                   <p className="text-sm text-muted-foreground">Open: Mon-Sat, 8am-6pm</p>
                 </div>

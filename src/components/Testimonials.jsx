@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Star } from 'lucide-react';
-
-import Modal from './Modal'; // Import the Modal component
+import ImageModal from './ImageModal';
+import SimpleImage from './SimpleImage';
+import { useImageModal } from '@/hooks/useImageModal';
 const Testimonials = () => { 
   const testimonials = [
     {
@@ -49,26 +50,71 @@ const Testimonials = () => {
     }
   ];
   const galleryImages = [
-    { alt: 'Modern kitchen backsplash', url: 'https://images.unsplash.com/photo-1616112868599-36782245735b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80' },
-    { alt: 'Luxury bathroom renovation', url: 'https://images.unsplash.com/photo-1584622650111-9da237120b5e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80' },
-    { alt: 'Commercial restaurant floor', url: 'https://images.unsplash.com/photo-1588776537401-efbf3a0048f4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80' },
-    { alt: 'Outdoor patio tiling', url: 'https://images.unsplash.com/photo-1594359715953-cb511b94e761?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80' },
-    { alt: 'Minimalist floor design', url: 'https://images.unsplash.com/photo-1621984676971-b86b6c4a9d37?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80' },
-    { alt: 'Unique shower enclosure', url: 'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80' },
+    { 
+      id: 'kitchen-1',
+      title: 'Modern Kitchen Backsplash',
+      category: 'Kitchen',
+      src: 'https://images.unsplash.com/photo-1616112868599-36782245735b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80',
+      alt: 'Modern kitchen backsplash',
+      description: 'Contemporary subway tile installation with premium finishes.',
+      type: 'portfolio'
+    },
+    { 
+      id: 'bathroom-1',
+      title: 'Luxury Bathroom Renovation',
+      category: 'Bathroom',
+      src: 'https://images.unsplash.com/photo-1584622650111-9da237120b5e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80',
+      alt: 'Luxury bathroom renovation',
+      description: 'High-end bathroom transformation with marble tiles.',
+      type: 'portfolio'
+    },
+    { 
+      id: 'commercial-1',
+      title: 'Commercial Restaurant Floor',
+      category: 'Commercial',
+      src: 'https://images.unsplash.com/photo-1588776537401-efbf3a0048f4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80',
+      alt: 'Commercial restaurant floor',
+      description: 'Durable commercial flooring for high-traffic areas.',
+      type: 'portfolio'
+    },
+    { 
+      id: 'outdoor-1',
+      title: 'Outdoor Patio Tiling',
+      category: 'Outdoor',
+      src: 'https://images.unsplash.com/photo-1594359715953-cb511b94e761?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80',
+      alt: 'Outdoor patio tiling',
+      description: 'Weather-resistant outdoor tiling solution.',
+      type: 'portfolio'
+    },
+    { 
+      id: 'floor-1',
+      title: 'Minimalist Floor Design',
+      category: 'Floor',
+      src: 'https://images.unsplash.com/photo-1621984676971-b86b6c4a9d37?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80',
+      alt: 'Minimalist floor design',
+      description: 'Clean, modern flooring with geometric patterns.',
+      type: 'portfolio'
+    },
+    { 
+      id: 'shower-1',
+      title: 'Unique Shower Enclosure',
+      category: 'Bathroom',
+      src: 'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80',
+      alt: 'Unique shower enclosure',
+      description: 'Custom shower design with premium tile work.',
+      type: 'portfolio'
+    },
   ];
 
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedImage, setSelectedImage] = useState('');
-
-  const openModal = (imageUrl) => {
-    setSelectedImage(imageUrl);
-    setIsModalOpen(true);
-  };
-
-  const closeModal = () => {
-    setIsModalOpen(false);
-    setSelectedImage('');
-  };
+  const {
+    isOpen: isModalOpen,
+    currentIndex,
+    currentImage,
+    openModal,
+    closeModal,
+    goToNext,
+    goToPrevious
+  } = useImageModal(galleryImages);
 
   const container = {
     hidden: { opacity: 0 },
@@ -123,14 +169,14 @@ const Testimonials = () => {
             >
               <div className="flex items-center gap-4 mb-4">
                 <div className="h-12 w-12 rounded-full overflow-hidden bg-indigo-800/50">
-                  <img
-                    className="w-full h-full object-cover"
-                    alt={`Portrait of ${testimonial.name}`}
+                  <SimpleImage
                     src={testimonial.image}
-                    onError={(e) => {
-                      console.error('Testimonial image failed to load:', testimonial.image);
-                      e.target.style.display = 'none';
-                    }}
+                    alt={`Portrait of ${testimonial.name}`}
+                    className="w-full h-full object-cover"
+                    showPlaceholder={true}
+                    placeholderType="testimonial"
+                    placeholderText={testimonial.name}
+                    onError={() => console.error('Testimonial image failed to load:', testimonial.image)}
                   />
                 </div>
                 <div>
@@ -167,18 +213,18 @@ const Testimonials = () => {
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
                 {galleryImages.map((image, i) => ( 
                   <div
-                    key={i}
+                    key={image.id}
                     className="relative h-24 rounded-lg overflow-hidden group cursor-pointer"
-                    onClick={() => openModal(image.url)}
+                    onClick={() => openModal(i)}
                   >
-                    <img
-                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                    <SimpleImage
+                      src={image.src}
                       alt={image.alt}
-                      src={image.url}
-                      onError={(e) => {
-                        console.error('Gallery image failed to load:', image.url);
-                        e.target.style.display = 'none';
-                      }}
+                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                      showPlaceholder={true}
+                      placeholderType="portfolio"
+                      placeholderText={image.title || "Project"}
+                      onError={() => console.error('Gallery image failed to load:', image.src)}
                     />
                     <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                       <span className="text-xs font-medium text-white">View</span>
@@ -196,17 +242,15 @@ const Testimonials = () => {
         </motion.div>
       </div>
     </section>
-    <Modal isOpen={isModalOpen} onClose={closeModal}>
-      <img
-        src={selectedImage}
-        alt="Project Image"
-        className="max-w-full max-h-[80vh] object-contain rounded-lg"
-        onError={(e) => {
-          console.error('Modal image failed to load:', selectedImage);
-          e.target.style.display = 'none';
-        }}
-      />
-    </Modal>
+    <ImageModal
+      isOpen={isModalOpen}
+      onClose={closeModal}
+      image={currentImage}
+      images={galleryImages}
+      currentIndex={currentIndex}
+      onNext={goToNext}
+      onPrevious={goToPrevious}
+    />
     </>
  );
 };

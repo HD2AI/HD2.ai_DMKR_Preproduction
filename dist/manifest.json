@@ -1,0 +1,66 @@
+{
+  "name": "DMKR.co.uk - Professional Tiling Services",
+  "short_name": "DMKR Tiling",
+  "description": "Professional tiling services for residential and commercial projects in the UK",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0f0f23",
+  "theme_color": "#6366f1",
+  "orientation": "portrait-primary",
+  "categories": ["business", "construction", "home improvement"],
+  "lang": "en-GB",
+  "icons": [
+    {
+      "src": "/dmkr-logo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/dmkr-logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/screenshot-desktop.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide"
+    },
+    {
+      "src": "/screenshot-mobile.png",
+      "sizes": "390x844",
+      "type": "image/png",
+      "form_factor": "narrow"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Get Quote",
+      "short_name": "Quote",
+      "description": "Request a free quote for your tiling project",
+      "url": "/quote",
+      "icons": [
+        {
+          "src": "/dmkr-logo.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Portfolio",
+      "short_name": "Work",
+      "description": "View our completed tiling projects",
+      "url": "/portfolio",
+      "icons": [
+        {
+          "src": "/dmkr-logo.png",
+          "sizes": "96x96"
+        }
+      ]
+    }
+  ]
+}

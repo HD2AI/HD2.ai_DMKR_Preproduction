@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, CheckCircle } from 'lucide-react';
+import SimpleImage from './SimpleImage';
 
 const Hero = () => {
   const container = {
@@ -22,7 +23,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative overflow-hidden pt-20 pb-16 md:pt-32 md:pb-24 hero-pattern">
+    <section className="relative overflow-hidden pt-24 pb-16 md:pt-40 md:pb-24 hero-pattern">
       {/* Decorative blurs */}
       <div className="blur-overlay top-20 left-[20%]"></div>
       <div className="blur-overlay bottom-20 right-[10%]"></div>
@@ -90,14 +91,14 @@ const Hero = () => {
             variants={item}
             className="relative lg:h-[500px] rounded-lg overflow-hidden shadow-2xl"
           >
-            <img
-              className="w-full h-full object-cover rounded-lg"
-              alt="Professional tiler installing ceramic tiles"
+            <SimpleImage
               src="https://images.unsplash.com/photo-1571680009459-42cf3eb79e15?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80"
-              onError={(e) => {
-                console.error('Hero image failed to load');
-                e.target.style.display = 'none';
-              }}
+              alt="Professional tiler installing ceramic tiles"
+              className="w-full h-full object-cover rounded-lg"
+              showPlaceholder={true}
+              placeholderType="hero"
+              placeholderText="Professional Tiling"
+              onError={() => console.error('Hero image failed to load')}
             />
             
             <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent"></div>

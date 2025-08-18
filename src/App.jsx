@@ -2,6 +2,8 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { Toaster } from '@/components/ui/toaster';
+import ErrorBoundary from '@/components/ErrorBoundary';
+import NetworkStatus from '@/components/NetworkStatus';
 import Layout from '@/components/Layout';
 import HomePage from '@/pages/HomePage';
 import PortfolioPage from '@/pages/PortfolioPage';
@@ -19,7 +21,8 @@ import NotFoundPage from '@/pages/NotFoundPage';
 
 function App() {
   return (
-    <>
+    <ErrorBoundary>
+      <NetworkStatus />
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} />
@@ -38,7 +41,7 @@ function App() {
         </Route>
       </Routes>
       <Toaster />
-    </>
+    </ErrorBoundary>
   );
 }
 

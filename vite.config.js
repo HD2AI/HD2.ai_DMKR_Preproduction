@@ -194,4 +194,43 @@ export default defineConfig({
 			'@': path.resolve(__dirname, './src'),
 		},
 	},
+	build: {
+		// Production optimizations
+		minify: 'terser',
+		terserOptions: {
+			compress: {
+				drop_console: true,
+				drop_debugger: true,
+			},
+		},
+		rollupOptions: {
+			output: {
+				// Manual chunk splitting for better caching
+				manualChunks: {
+					vendor: ['react', 'react-dom'],
+					router: ['react-router-dom'],
+					ui: ['framer-motion', 'lucide-react'],
+					utils: ['clsx', 'tailwind-merge'],
+				},
+			},
+		},
+		// Optimize chunk size
+		chunkSizeWarningLimit: 1000,
+		// Enable source maps for production debugging (optional)
+		sourcemap: false,
+		// Asset optimization
+		assetsInlineLimit: 4096,
+	},
+	// Optimize dependencies
+	optimizeDeps: {
+		include: [
+			'react',
+			'react-dom',
+			'react-router-dom',
+			'framer-motion',
+			'lucide-react',
+			'clsx',
+			'tailwind-merge'
+		],
+	},
 });

@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import SimpleImage from '@/components/SimpleImage';
 
 const BlogPage = () => {
   // Blog content with relevant tiling industry images
@@ -62,7 +63,7 @@ const BlogPage = () => {
   ];
 
   return (
-    <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+    <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16 md:pt-32 md:pb-24">
       <motion.div
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -87,10 +88,14 @@ const BlogPage = () => {
             className="bg-secondary/50 rounded-lg border border-border/50 overflow-hidden flex flex-col"
           >
             <div className="h-48 relative overflow-hidden">
-               <img 
-                 className="w-full h-full object-cover transition-transform duration-300 hover:scale-105" 
-                 alt={post.imageAlt} 
-                 src={post.imageUrl} 
+               <SimpleImage
+                 src={post.imageUrl}
+                 alt={post.imageAlt}
+                 className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                 showPlaceholder={true}
+                 placeholderType="blog"
+                 placeholderText={post.title}
+                 onError={() => console.error('Blog image failed to load:', post.imageUrl)}
                />
                <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
             </div>
