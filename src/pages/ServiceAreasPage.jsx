@@ -1,6 +1,6 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import { MapPin } from 'lucide-react';
 
 const ServiceAreasPage = () => {
@@ -52,13 +52,12 @@ const ServiceAreasPage = () => {
         className="mt-16 text-center"
       >
         <p className="text-muted-foreground">Don't see your area listed?</p>
-        <a href="/quote" className="text-indigo-400 hover:text-indigo-300 font-medium underline">
+        <Link to="/quote" className="text-indigo-400 hover:text-indigo-300 font-medium underline">
           Contact us for inquiries
-        </a>
+        </Link>
       </motion.div>
     </div>
   );
 };
 
 export default ServiceAreasPage;
-  

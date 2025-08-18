@@ -1,14 +1,64 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
 const BlogPage = () => {
-  // Placeholder content - In a real app, this would come from an API or CMS
+  // Blog content with relevant tiling industry images
   const posts = [
-    { id: 1, title: 'Choosing the Right Tile for Your Bathroom', excerpt: 'Factors to consider when selecting bathroom tiles: durability, water resistance, style, and budget.', date: '2025-04-15', imageUrl: 'https://images.unsplash.com/photo-1559143616-2a8d10344837?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80', imageAlt: 'Various bathroom tile samples', imageDesc: 'High-resolution photo displaying a variety of bathroom tile samples including ceramic, porcelain, and natural stone.' },
-    { id: 2, title: 'Grout Guide: Epoxy vs. Cement', excerpt: 'Understanding the pros and cons of different grout types for longevity and maintenance.', date: '2025-03-28', imageUrl: 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80', imageAlt: 'Close up of grout lines between tiles', imageDesc: 'Macro photograph showing clean grout lines between modern grey tiles, comparing epoxy and cement grout appearance.' },
-    { id: 3, title: 'Tiling Trends for 2025', excerpt: 'Explore the latest styles: large formats, bold patterns, natural textures, and sustainable options.', date: '2025-03-10', imageUrl: 'https://images.unsplash.com/photo-1576563692289-2d1369f69165?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80', imageAlt: 'Mood board with trendy tile designs', imageDesc: 'Flat lay photo of a designer mood board featuring trendy tile samples, color palettes, and fabric swatches for 2025 interior design.' },
+    { 
+      id: 1, 
+      title: 'Choosing the Right Tile for Your Bathroom', 
+      excerpt: 'Factors to consider when selecting bathroom tiles: durability, water resistance, style, and budget.', 
+      date: '2025-04-15', 
+      imageUrl: 'https://images.unsplash.com/photo-1584622650111-9da237120b5e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80', 
+      imageAlt: 'Elegant bathroom with luxury marble tiles', 
+      imageDesc: 'A beautifully designed bathroom featuring premium marble tiles, demonstrating the importance of material selection.' 
+    },
+    { 
+      id: 2, 
+      title: 'Grout Guide: Epoxy vs. Cement', 
+      excerpt: 'Understanding the pros and cons of different grout types for longevity and maintenance.', 
+      date: '2025-03-28', 
+      imageUrl: 'https://images.unsplash.com/photo-1556912172-45b7abe8b7e1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80', 
+      imageAlt: 'Close-up of professional grouting work', 
+      imageDesc: 'Professional tiler applying grout between tiles, showing the precision required for quality installation.' 
+    },
+    { 
+      id: 3, 
+      title: 'Tiling Trends for 2025', 
+      excerpt: 'Explore the latest styles: large formats, bold patterns, natural textures, and sustainable options.', 
+      date: '2025-03-10', 
+      imageUrl: 'https://images.unsplash.com/photo-1618220179428-22790b461013?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80', 
+      imageAlt: 'Modern geometric tile pattern design', 
+      imageDesc: 'Contemporary geometric tile patterns showcasing the latest trends in interior design for 2025.' 
+    },
+    { 
+      id: 4, 
+      title: 'Maintenance Tips for Long-Lasting Tiles', 
+      excerpt: 'How to keep your tiles looking pristine for years with proper cleaning and care routines.', 
+      date: '2025-02-20', 
+      imageUrl: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80', 
+      imageAlt: 'Cleaning supplies for tile maintenance', 
+      imageDesc: 'Professional cleaning equipment and supplies used for maintaining tiled surfaces.' 
+    },
+    { 
+      id: 5, 
+      title: 'The Benefits of Porcelain vs Ceramic Tiles', 
+      excerpt: 'Compare durability, cost, and applications to make the best choice for your project.', 
+      date: '2025-02-05', 
+      imageUrl: 'https://images.unsplash.com/photo-1600566752734-c3d7ba62c2bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80', 
+      imageAlt: 'Various tile samples showing different materials', 
+      imageDesc: 'Collection of porcelain and ceramic tile samples demonstrating different textures and finishes.' 
+    },
+    { 
+      id: 6, 
+      title: 'Planning Your Kitchen Backsplash Project', 
+      excerpt: 'Step-by-step guide to designing and installing the perfect kitchen backsplash.', 
+      date: '2025-01-18', 
+      imageUrl: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80', 
+      imageAlt: 'Modern kitchen with subway tile backsplash', 
+      imageDesc: 'Beautiful modern kitchen featuring a classic subway tile backsplash installation.' 
+    }
   ];
 
   return (
@@ -36,8 +86,13 @@ const BlogPage = () => {
             transition={{ delay: 0.1 + index * 0.1, duration: 0.5 }}
             className="bg-secondary/50 rounded-lg border border-border/50 overflow-hidden flex flex-col"
           >
-            <div className="h-48 bg-gradient-to-br from-indigo-900 to-purple-900 relative">
-               <img  className="w-full h-full object-cover opacity-70" alt={post.imageAlt} src={post.imageUrl} />
+            <div className="h-48 relative overflow-hidden">
+               <img 
+                 className="w-full h-full object-cover transition-transform duration-300 hover:scale-105" 
+                 alt={post.imageAlt} 
+                 src={post.imageUrl} 
+               />
+               <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
             </div>
             <div className="p-6 flex-grow flex flex-col">
               <p className="text-xs text-muted-foreground mb-2">{post.date}</p>
@@ -45,7 +100,7 @@ const BlogPage = () => {
               <p className="text-muted-foreground text-sm mb-4">{post.excerpt}</p>
               <Link 
                 to={`/blog/${post.id}`} 
-                className="text-indigo-400 hover:text-indigo-300 text-sm font-medium self-start"
+                className="text-indigo-400 hover:text-indigo-300 text-sm font-medium self-start transition-colors"
               >
                 Read More
               </Link>

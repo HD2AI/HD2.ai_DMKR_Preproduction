@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
@@ -91,10 +90,15 @@ const Hero = () => {
             variants={item}
             className="relative lg:h-[500px] rounded-lg overflow-hidden shadow-2xl"
           >
-            <img  
-              className="w-full h-full object-cover rounded-lg" 
+            <img
+              className="w-full h-full object-cover rounded-lg"
               alt="Professional tiler installing ceramic tiles"
-             src="https://images.unsplash.com/photo-1571680009459-42cf3eb79e15" />
+              src="https://images.unsplash.com/photo-1571680009459-42cf3eb79e15?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80"
+              onError={(e) => {
+                console.error('Hero image failed to load');
+                e.target.style.display = 'none';
+              }}
+            />
             
             <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent"></div>
             

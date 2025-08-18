@@ -1,6 +1,5 @@
-
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Menu, X } from 'lucide-react';
@@ -10,6 +9,7 @@ const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -29,6 +29,20 @@ const Navbar = () => {
     document.body.classList.toggle('dark', isDarkMode);
   }, [location]);
 
+  // Handle immediate section scrolling after navigation
+  useEffect(() => {
+    if (location.hash && location.pathname === '/') {
+      const sectionId = location.hash.substring(1);
+      const element = document.getElementById(sectionId);
+      if (element) {
+        // Small delay to ensure page is rendered
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 100);
+      }
+    }
+  }, [location]);
+
   const navLinks = [
     { name: 'Home', href: '/' },
     { name: 'Features', href: '/#features' },
@@ -39,22 +53,28 @@ const Navbar = () => {
     { name: 'Contact', href: '/quote' },
   ];
 
-  const handleScrollToSection = (e, hash) => {
-    if (location.pathname === '/' && hash) {
-      e.preventDefault();
-      const element = document.getElementById(hash.substring(1));
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
+  const handleScrollToSection = (e, link) => {
+    const hasHash = link.href.includes('#');
+    
+    if (hasHash) {
+      const hash = link.href.substring(link.href.indexOf('#'));
+      const sectionId = hash.substring(1);
+      
+      if (location.pathname === '/') {
+        // Already on home page, just scroll
+        e.preventDefault();
+        const element = document.getElementById(sectionId);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      } else {
+        // Navigate to home page with hash, then let useEffect handle scrolling
+        e.preventDefault();
+        navigate(`/${hash}`);
       }
-      setMobileMenuOpen(false);
-    } else if (hash) {
-      // If on a different page, navigate to home first, then scroll
-      // This requires more complex logic, maybe using state in location
-      // For simplicity, just navigate to the hash for now
-      setMobileMenuOpen(false);
-    } else {
-      setMobileMenuOpen(false);
     }
+    
+    setMobileMenuOpen(false);
   };
 
   const handleThemeToggle = () => {
@@ -90,7 +110,7 @@ const Navbar = () => {
               <Link
                 key={link.name}
                 to={link.href}
-                onClick={(e) => handleScrollToSection(e, link.href.includes('#') ? link.href.substring(link.href.indexOf('#')) : null)}
+                onClick={(e) => handleScrollToSection(e, link)}
                 className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
               >
                 {link.name}
@@ -139,7 +159,7 @@ const Navbar = () => {
               <Link
                 key={link.name}
                 to={link.href}
-                onClick={(e) => handleScrollToSection(e, link.href.includes('#') ? link.href.substring(link.href.indexOf('#')) : null)}
+                onClick={(e) => handleScrollToSection(e, link)}
                 className="block py-2 text-base font-medium text-foreground hover:text-primary"
               >
                 {link.name}

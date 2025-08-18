@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Star } from 'lucide-react';
@@ -125,9 +124,14 @@ const Testimonials = () => {
               <div className="flex items-center gap-4 mb-4">
                 <div className="h-12 w-12 rounded-full overflow-hidden bg-indigo-800/50">
                   <img
-                    className="w-full h-full object-cover" 
+                    className="w-full h-full object-cover"
                     alt={`Portrait of ${testimonial.name}`}
-                    src={testimonial.image} />
+                    src={testimonial.image}
+                    onError={(e) => {
+                      console.error('Testimonial image failed to load:', testimonial.image);
+                      e.target.style.display = 'none';
+                    }}
+                  />
                 </div>
                 <div>
                   <h4 className="font-medium">{testimonial.name}</h4>
@@ -170,7 +174,12 @@ const Testimonials = () => {
                     <img
                       className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
                       alt={image.alt}
-                      src={image.url} />
+                      src={image.url}
+                      onError={(e) => {
+                        console.error('Gallery image failed to load:', image.url);
+                        e.target.style.display = 'none';
+                      }}
+                    />
                     <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                       <span className="text-xs font-medium text-white">View</span>
                     </div>
@@ -188,7 +197,15 @@ const Testimonials = () => {
       </div>
     </section>
     <Modal isOpen={isModalOpen} onClose={closeModal}>
-      <img src={selectedImage} alt="Project Image" className="max-w-full max-h-[80vh] object-contain" />
+      <img
+        src={selectedImage}
+        alt="Project Image"
+        className="max-w-full max-h-[80vh] object-contain rounded-lg"
+        onError={(e) => {
+          console.error('Modal image failed to load:', selectedImage);
+          e.target.style.display = 'none';
+        }}
+      />
     </Modal>
     </>
  );
