@@ -1,6 +1,26 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 const Modal = ({ isOpen, onClose, children }) => {
+  // Close modal on Escape key press
+  useEffect(() => {
+    const handleEscape = (e) => {
+      if (e.key === 'Escape') {
+        onClose();
+      }
+    };
+
+    if (isOpen) {
+      document.addEventListener('keydown', handleEscape);
+      // Prevent body scroll when modal is open
+      document.body.style.overflow = 'hidden';
+    }
+
+    return () => {
+      document.removeEventListener('keydown', handleEscape);
+      document.body.style.overflow = 'unset';
+    };
+  }, [isOpen, onClose]);
+
   if (!isOpen) {
     return null;
   }
@@ -13,14 +33,14 @@ const Modal = ({ isOpen, onClose, children }) => {
       aria-modal="true"
     >
       <div
-        className="fixed inset-0 bg-black opacity-50 transition-opacity"
+        className="fixed inset-0 bg-black/80 transition-opacity backdrop-blur-sm"
         aria-hidden="true"
         onClick={onClose}
       ></div>
-      <div className="relative bg-background rounded-lg shadow-xl p-6 max-w-lg mx-auto z-50">
+      <div className="relative bg-background rounded-lg shadow-xl max-w-5xl mx-auto z-50 m-4 max-h-[90vh] overflow-auto">
         <button
           type="button"
-          className="absolute top-3 right-3 text-muted-foreground hover:text-foreground"
+          className="absolute top-3 right-3 z-10 text-muted-foreground hover:text-foreground bg-background/80 rounded-full p-2 backdrop-blur-sm transition-colors"
           onClick={onClose}
           aria-label="Close modal"
         >
@@ -40,7 +60,7 @@ const Modal = ({ isOpen, onClose, children }) => {
             />
           </svg>
         </button>
-        <div className="mt-3 text-center sm:mt-0 sm:text-left">
+        <div className="p-6">
           {children}
         </div>
       </div>
