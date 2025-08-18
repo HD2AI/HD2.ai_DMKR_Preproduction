@@ -1,6 +1,6 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import { MapPin } from 'lucide-react';
 
 const ServiceAreasPage = () => {
@@ -61,4 +61,3 @@ const ServiceAreasPage = () => {
 };
 
 export default ServiceAreasPage;
-  
