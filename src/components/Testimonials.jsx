@@ -197,7 +197,15 @@ const Testimonials = () => {
       </div>
     </section>
     <Modal isOpen={isModalOpen} onClose={closeModal}>
-      <img src={selectedImage} alt="Project Image" className="max-w-full max-h-[80vh] object-contain" />
+      <img
+        src={selectedImage}
+        alt="Project Image"
+        className="max-w-full max-h-[80vh] object-contain rounded-lg"
+        onError={(e) => {
+          console.error('Modal image failed to load:', selectedImage);
+          e.target.style.display = 'none';
+        }}
+      />
     </Modal>
     </>
  );
