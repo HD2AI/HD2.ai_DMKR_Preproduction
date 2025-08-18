@@ -174,7 +174,12 @@ const Testimonials = () => {
                     <img
                       className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
                       alt={image.alt}
-                      src={image.url} />
+                      src={image.url}
+                      onError={(e) => {
+                        console.error('Gallery image failed to load:', image.url);
+                        e.target.style.display = 'none';
+                      }}
+                    />
                     <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                       <span className="text-xs font-medium text-white">View</span>
                     </div>
