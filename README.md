@@ -52,7 +52,15 @@ Ensure you have the following installed on your system:
     VITE_SUPABASE_URL="YOUR_SUPABASE_URL"
     VITE_SUPABASE_ANON_KEY="YOUR_SUPABASE_ANON_KEY"
     ```
+    Do not commit your real keys. The app reads these via `src/lib/config.js`.
     You can find these credentials in your Supabase project settings under "API".
+
+### Example `.env.example`
+
+```
+VITE_SUPABASE_URL=
+VITE_SUPABASE_ANON_KEY=
+```
 
 ### Running the Application
 

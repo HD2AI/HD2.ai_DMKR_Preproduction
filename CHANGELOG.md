@@ -1,3 +1,7 @@
+## 2025-08-18
+
+- Remove hardcoded Supabase credentials from `src/lib/supabaseClient.js`; now uses env via `src/lib/config.js`.
+- Documentation: clarify `.env` usage in `README.md`.
 # Changelog
 
 All notable changes to this project will be documented in this file.

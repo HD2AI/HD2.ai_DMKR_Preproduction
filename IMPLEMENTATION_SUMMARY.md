@@ -1,3 +1,7 @@
+### 2025-08-18
+
+- Refactored `src/lib/supabaseClient.js` to use environment-configured values from `src/lib/config.js`.
+- Added guidance in `README.md` and `CHANGELOG.md` about `.env` and removed hardcoded credentials.
 # DMKR.co.uk Website Production Fixes - Implementation Summary
 
 ## 🎯 All Tasks Completed Successfully!
