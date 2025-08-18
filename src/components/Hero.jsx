@@ -93,15 +93,15 @@ const Hero = () => {
           >
             <img  
               className="w-full h-full object-cover rounded-lg" 
-              alt="Beautifully tiled modern bathroom"
-             src="https://images.unsplash.com/photo-1604709177595-ee9c2547e85a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" />
+              alt="Professional tiler installing ceramic tiles"
+             src="https://images.unsplash.com/photo-1571680009459-42cf3eb79e15" />
             
             <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent"></div>
             
             <div className="absolute bottom-6 left-6 right-6 p-4 bg-background/80 backdrop-blur-sm rounded-lg border border-border/50">
               <div className="flex items-start gap-4">
                 <div className="bg-indigo-500/20 p-2 rounded-full">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-indigo-400"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"></path><path d="m9 12 2 2 4-4"></path></svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-indigo-400"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"></path><path d="m9 12 2 2 4-4"></path></svg>
                 </div>
                 <div>
                   <h3 className="text-sm font-medium">Trusted by 200+ Homeowners</h3>
