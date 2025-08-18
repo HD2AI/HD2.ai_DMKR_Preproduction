@@ -34,6 +34,7 @@ const Navbar = () => {
     { name: 'Features', href: '/#features' },
     { name: 'Pricing', href: '/#pricing' },
     { name: 'Portfolio', href: '/portfolio' },
+    { name: 'Blog', href: '/blog' },
     { name: 'Testimonials', href: '/#testimonials' },
     { name: 'Contact', href: '/quote' },
   ];
@@ -77,8 +78,9 @@ const Navbar = () => {
               <img
                 src="/dmkr-logo.png"
                 alt="DMKR logo"
- className="h-8 w-auto filter brightness-[2] invert hue-rotate-[260deg] saturate-[5] drop-shadow-[0_0_5px_rgba(139,92,246,0.7)]" /> {/* Adjusted size and applied filters for visibility and color */}
- <span className="text-lg font-bold text-white drop-shadow-[0_0_5px_rgba(255,255,255,0.5)]">TilingByDMKR.co.uk</span> {/* Added back header text and styled for contrast */}
+                className="h-8 w-auto filter brightness-[2] invert hue-rotate-[260deg] saturate-[5] drop-shadow-[0_0_5px_rgba(139,92,246,0.7)]" 
+              />
+              <span className="text-lg font-bold text-white drop-shadow-[0_0_5px_rgba(255,255,255,0.5)]">TilingByDMKR.co.uk</span>
             </Link>
           </div>
 
@@ -159,4 +161,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-  

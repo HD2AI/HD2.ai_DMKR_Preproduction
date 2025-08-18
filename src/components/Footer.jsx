@@ -16,7 +16,6 @@ const Footer = () => {
 
   const company = [
     { name: 'About Us', href: '/about' },
-    { name: 'Our Team', href: '/team' },
     { name: 'Portfolio', href: '/portfolio' },
     { name: 'Testimonials', href: '/#testimonials' }, // Link to section on home page
     { name: 'Blog', href: '/blog' },
@@ -147,4 +146,3 @@ const Footer = () => {
 };
 
 export default Footer;
-  

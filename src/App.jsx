@@ -9,7 +9,6 @@ import QuotePage from '@/pages/QuotePage';
 import ServiceAreasPage from '@/pages/ServiceAreasPage';
 import LoginPage from '@/pages/LoginPage';
 import AboutPage from '@/pages/AboutPage';
-import TeamPage from '@/pages/TeamPage';
 import BlogPage from '@/pages/BlogPage';
 import BlogPostPage from '@/pages/BlogPostPage';
 import CareersPage from '@/pages/CareersPage';
@@ -29,9 +28,8 @@ function App() {
           <Route path="service-areas" element={<ServiceAreasPage />} />
           <Route path="login" element={<LoginPage />} />
           <Route path="about" element={<AboutPage />} />
-          <Route path="team" element={<TeamPage />} />
           <Route path="blog" element={<BlogPage />} />
-          <Route path="blog/:postId" element={<BlogPostPage />} /> {/* Added route for individual blog posts */}
+          <Route path="blog/:postId" element={<BlogPostPage />} />
           <Route path="careers" element={<CareersPage />} />
           <Route path="privacy" element={<PrivacyPage />} />
           <Route path="terms" element={<TermsPage />} />
@@ -45,4 +43,3 @@ function App() {
 }
 
 export default App;
-  

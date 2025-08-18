@@ -49,6 +49,15 @@ const Testimonials = () => {
       rating: 5
     }
   ];
+  const galleryImages = [
+    { alt: 'Modern kitchen backsplash', url: 'https://images.unsplash.com/photo-1616112868599-36782245735b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80' },
+    { alt: 'Luxury bathroom renovation', url: 'https://images.unsplash.com/photo-1584622650111-9da237120b5e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80' },
+    { alt: 'Commercial restaurant floor', url: 'https://images.unsplash.com/photo-1588776537401-efbf3a0048f4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80' },
+    { alt: 'Outdoor patio tiling', url: 'https://images.unsplash.com/photo-1594359715953-cb511b94e761?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80' },
+    { alt: 'Minimalist floor design', url: 'https://images.unsplash.com/photo-1621984676971-b86b6c4a9d37?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80' },
+    { alt: 'Unique shower enclosure', url: 'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80' },
+  ];
+
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState('');
 
@@ -111,14 +120,14 @@ const Testimonials = () => {
             <motion.div 
               key={index}
               variants={item}
-              className="testimonial-card bg-background/10 backdrop-blur-sm rounded-xl p-6 border border-white/10 flex flex-col w-full flex-shrink-0" // Added flex flex-col, w-full, flex-shrink-0
+              className="testimonial-card bg-background/10 backdrop-blur-sm rounded-xl p-6 border border-white/10 flex flex-col w-full flex-shrink-0"
             >
               <div className="flex items-center gap-4 mb-4">
                 <div className="h-12 w-12 rounded-full overflow-hidden bg-indigo-800/50">
                   <img
                     className="w-full h-full object-cover" 
                     alt={`Portrait of ${testimonial.name}`}
-                    src="https://images.unsplash.com/photo-1586732711591-12c04655338f" />
+                    src={testimonial.image} />
                 </div>
                 <div>
                   <h4 className="font-medium">{testimonial.name}</h4>
@@ -152,21 +161,16 @@ const Testimonials = () => {
                 Browse our portfolio of completed projects to see the quality and craftsmanship we bring to every job.
               </p>
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-                {[
-                  'Modern kitchen backsplash',
-                  'Luxury bathroom renovation',
-                  'Commercial restaurant floor',
-                  'Outdoor patio tiling',
-                  'Minimalist floor design',
-                ].map((project, i) => ( <div
- key={i}
- className="relative h-24 rounded-lg overflow-hidden group cursor-pointer" // Add cursor-pointer for visual indication
- onClick={() => openModal("https://images.unsplash.com/photo-1569462989100-fc19203374cc")} // Call openModal with image URL
- >
- <img
- className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
- alt={project}
- src="https://images.unsplash.com/photo-1569462989100-fc19203374cc" />
+                {galleryImages.map((image, i) => ( 
+                  <div
+                    key={i}
+                    className="relative h-24 rounded-lg overflow-hidden group cursor-pointer"
+                    onClick={() => openModal(image.url)}
+                  >
+                    <img
+                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                      alt={image.alt}
+                      src={image.url} />
                     <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                       <span className="text-xs font-medium text-white">View</span>
                     </div>
@@ -183,9 +187,7 @@ const Testimonials = () => {
         </motion.div>
       </div>
     </section>
-    {/* Render the Modal component */}
     <Modal isOpen={isModalOpen} onClose={closeModal}>
-      {/* Modal content - display the selected image */}
       <img src={selectedImage} alt="Project Image" className="max-w-full max-h-[80vh] object-contain" />
     </Modal>
     </>
@@ -193,4 +195,3 @@ const Testimonials = () => {
 };
 
 export default Testimonials;
-  

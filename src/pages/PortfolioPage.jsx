@@ -55,12 +55,13 @@ const PortfolioPage = () => {
           <motion.div
             key={project.id}
             variants={item}
-          className="group relative overflow-hidden rounded-lg shadow-lg cursor-pointer"
+            className="group relative overflow-hidden rounded-lg shadow-lg cursor-pointer"
           >
             <img  
-              class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105"
+              className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105"
               alt={project.imageAlt}
-             src="https://images.unsplash.com/photo-1675023112817-52b789fd2ef0" />
+              src={project.imageUrl} 
+            />
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
             <div className="absolute bottom-0 left-0 p-4">
               <h3 className="text-lg font-semibold text-white mb-1">{project.title}</h3>
@@ -76,4 +77,3 @@ const PortfolioPage = () => {
 };
 
 export default PortfolioPage;
-  

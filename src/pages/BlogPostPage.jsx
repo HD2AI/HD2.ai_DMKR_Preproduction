@@ -3,18 +3,19 @@ import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowLeft } from 'lucide-react';
-import { Button } from '@/components/ui/button'; // Added Button import
+import { Button } from '@/components/ui/button'; 
 
 // Placeholder content - In a real app, this would fetch data based on postId
 const blogPostsData = {
   1: { 
     title: 'Choosing the Right Tile for Your Bathroom', 
     date: '2025-04-15', 
+    imageUrl: 'https://images.unsplash.com/photo-1559143616-2a8d10344837?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80',
     imageAlt: 'Various bathroom tile samples',
     imageDesc: 'High-resolution photo displaying a variety of bathroom tile samples including ceramic, porcelain, and natural stone.',
     content: `
       <p>Selecting the perfect tile for your bathroom involves balancing aesthetics, functionality, and budget. Here are key factors to consider:</p>
-      <ul class="list-disc list-inside space-y-2 my-4">
+      <ul className="list-disc list-inside space-y-2 my-4">
         <li><strong>Water Resistance:</strong> Bathrooms are high-moisture environments. Porcelain tiles are virtually waterproof (absorption rate <0.5%), making them ideal. Glazed ceramic tiles are also suitable, while natural stone may require sealing.</li>
         <li><strong>Durability & Maintenance:</strong> Porcelain is highly durable and resists scratches and stains. Ceramic is also durable but can chip more easily. Natural stone varies in durability and often requires more maintenance.</li>
         <li><strong>Slip Resistance:</strong> Safety is paramount. Look for tiles with a higher coefficient of friction (COF) rating, especially for floor tiles. Textured finishes offer better grip than polished ones.</li>
@@ -29,19 +30,20 @@ const blogPostsData = {
   2: { 
     title: 'Grout Guide: Epoxy vs. Cement', 
     date: '2025-03-28', 
+    imageUrl: 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80',
     imageAlt: 'Close up of grout lines between tiles',
     imageDesc: 'Macro photograph showing clean grout lines between modern grey tiles, comparing epoxy and cement grout appearance.',
     content: `
       <p>Grout does more than just fill the gaps between tiles; it provides structural support and prevents water ingress. The two main types are cement-based and epoxy grout. Here's a comparison:</p>
-      <h3 class="text-xl font-semibold mt-4 mb-2">Cement-Based Grout</h3>
-      <ul class="list-disc list-inside space-y-2 my-4">
+      <h3 className="text-xl font-semibold mt-4 mb-2">Cement-Based Grout</h3>
+      <ul className="list-disc list-inside space-y-2 my-4">
         <li><strong>Composition:</strong> A mixture of cement, water, and sometimes sand (sanded for wider joints, unsanded for narrower joints).</li>
         <li><strong>Pros:</strong> More affordable, easier to install and clean up during installation, wide range of colors.</li>
         <li><strong>Cons:</strong> Porous (absorbs water and stains unless sealed), requires periodic sealing, prone to cracking over time, can harbor mold/mildew if not maintained.</li>
         <li><strong>Best For:</strong> Dry areas, budget-conscious projects, DIY installations.</li>
       </ul>
-      <h3 class="text-xl font-semibold mt-4 mb-2">Epoxy Grout</h3>
-      <ul class="list-disc list-inside space-y-2 my-4">
+      <h3 className="text-xl font-semibold mt-4 mb-2">Epoxy Grout</h3>
+      <ul className="list-disc list-inside space-y-2 my-4">
         <li><strong>Composition:</strong> Made from epoxy resins and a filler powder.</li>
         <li><strong>Pros:</strong> Non-porous (waterproof and highly resistant to stains, chemicals, and grease), extremely durable, doesn't require sealing, inhibits mold/mildew growth, maintains color consistency.</li>
         <li><strong>Cons:</strong> More expensive, significantly harder and faster-setting during installation (less forgiving), can discolor porous tiles if not cleaned quickly, often has a slight plastic sheen.</li>
@@ -53,11 +55,12 @@ const blogPostsData = {
   3: { 
     title: 'Tiling Trends for 2025', 
     date: '2025-03-10', 
+    imageUrl: 'https://images.unsplash.com/photo-1576563692289-2d1369f69165?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80',
     imageAlt: 'Mood board with trendy tile designs',
     imageDesc: 'Flat lay photo of a designer mood board featuring trendy tile samples, color palettes, and fabric swatches for 2025 interior design.',
     content: `
       <p>Tiling is constantly evolving. Here are some key trends shaping interior design in 2025:</p>
-      <ul class="list-disc list-inside space-y-2 my-4">
+      <ul className="list-disc list-inside space-y-2 my-4">
         <li><strong>Large-Format Tiles:</strong> Bigger tiles (e.g., 24x48 inches or larger) continue to gain popularity, creating a seamless look with fewer grout lines, especially on floors and shower walls.</li>
         <li><strong>Natural & Earthy Tones:</strong> Warm neutrals, terracotta, sage green, and deep blues are in vogue, bringing a sense of calm and connection to nature indoors.</li>
         <li><strong>Textured Finishes:</strong> Tiles with 3D patterns, fluted surfaces, or tactile finishes add depth and visual interest to walls. Think beyond smooth surfaces.</li>
@@ -111,9 +114,9 @@ const BlogPostPage = () => {
           
           <div className="relative h-64 md:h-96 rounded-lg overflow-hidden mb-8 bg-secondary/50">
              <img  
-                class="w-full h-full object-cover" 
+                className="w-full h-full object-cover" 
                 alt={post.imageAlt}
-              src="https://images.unsplash.com/photo-1694388001616-1176f534d72f" />
+              src={post.imageUrl} />
           </div>
 
           <div 
@@ -128,4 +131,3 @@ const BlogPostPage = () => {
 };
 
 export default BlogPostPage;
-  

@@ -35,10 +35,10 @@ const CareersPage = () => {
           className="bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-600 hover:to-purple-700"
           asChild
         >
-          <Link to="/quote">Submit Your Interest</Link>
+          <Link to="/quote">Contact Us</Link>
         </Button>
          <p className="text-xs text-muted-foreground mt-4">
-          Use the contact form to tell us about yourself.
+          Use our contact form to tell us about yourself.
         </p>
       </motion.div>
     </div>
@@ -46,4 +46,3 @@ const CareersPage = () => {
 };
 
 export default CareersPage;
-  

@@ -127,8 +127,8 @@ const Features = () => {
             <div className="relative h-[400px] lg:h-[500px]">
               <img  
                 className="w-full h-full object-cover" 
-                alt="Modern bathroom with elegant tile work"
-               src="https://images.unsplash.com/photo-1700074817207-c55fc074a562" />
+                alt="Tiler meticulously applying grout to a kitchen backsplash"
+               src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" />
               <div className="absolute inset-0 bg-gradient-to-r from-background via-transparent to-transparent lg:bg-gradient-to-l"></div>
             </div>
           </div>
@@ -139,4 +139,3 @@ const Features = () => {
 };
 
 export default Features;
-  
