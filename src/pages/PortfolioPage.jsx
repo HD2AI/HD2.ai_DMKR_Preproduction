@@ -3,163 +3,143 @@ import { motion } from 'framer-motion';
 import ImageGallery from '@/components/ImageGallery';
 
 const PortfolioPage = () => {
-  const [selectedCategory, setSelectedCategory] = useState('All');
-
-  const projects = [
-    { 
-      id: 1, 
-      title: 'Luxury Bathroom Renovation', 
-      category: 'Bathroom', 
-      src: 'https://images.unsplash.com/photo-1584622650111-9da237120b5e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80', 
-      alt: 'Luxurious bathroom with large format marble tiles', 
-      description: 'Showcasing expert craftsmanship with premium marble tiles for a durable and elegant finish.',
-      location: 'London, UK',
-      projectDate: '2024-01-15',
-      type: 'portfolio'
+  const portfolioData = [
+    {
+      id: 1,
+      title: "E-Commerce Redesign",
+      description: "Modern UI/UX for a fashion retailer.",
+      category: "Web Design",
+      imageUrl: "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=800&q=80",
+      alt: "Fashion e-commerce website redesign",
+      fallback: "/assets/placeholders/ecommerce.jpg"
     },
-    { 
-      id: 2, 
-      title: 'Modern Kitchen Backsplash', 
-      category: 'Kitchen', 
-      src: 'https://images.unsplash.com/photo-1556912173-3bb406ef7e77?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80', 
-      alt: 'Contemporary kitchen with subway tile backsplash installation', 
-      description: 'Professional installation of premium subway tiles creating a clean, modern kitchen aesthetic.',
-      location: 'Manchester, UK',
-      projectDate: '2024-02-20',
-      type: 'portfolio'
+    {
+      id: 2,
+      title: "Brand Identity for Cafe",
+      description: "Logo and branding for a local coffee shop.",
+      category: "Branding",
+      imageUrl: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80",
+      alt: "Cafe branding and logo",
+      fallback: "/assets/placeholders/cafe.jpg"
     },
-    { 
-      id: 3, 
-      title: 'Durable Garage Floor', 
-      category: 'Floor', 
-      src: 'https://images.unsplash.com/photo-1600585152915-d08a228c8d52?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80', 
-      alt: 'Hard-wearing tiled garage floor', 
-      description: 'Robust floor installation using high-quality, durable tiles built to last, showcasing our guaranteed quality.',
-      location: 'Birmingham, UK',
-      projectDate: '2024-03-10',
-      type: 'portfolio'
+    {
+      id: 3,
+      title: "Mobile App for Fitness",
+      description: "iOS/Android app for personal trainers.",
+      category: "App Development",
+      imageUrl: "https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=800&q=80",
+      alt: "Fitness mobile app UI",
+      fallback: "/assets/placeholders/fitness.jpg"
     },
-    { 
-      id: 4, 
-      title: 'Chic Patio Tiling', 
-      category: 'Outdoor', 
-      src: 'https://images.unsplash.com/photo-1594359715953-cb511b94e761?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80', 
-      alt: 'Stylish outdoor patio with large format tiles', 
-      description: 'Comprehensive service from design to installation for a beautiful and durable outdoor space.',
-      location: 'Leeds, UK',
-      projectDate: '2024-04-05',
-      type: 'portfolio'
+    {
+      id: 4,
+      title: "Portfolio Website for Photographer",
+      description: "Minimalist portfolio for a professional photographer.",
+      category: "Web Design",
+      imageUrl: "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=800&q=80",
+      alt: "Photographer portfolio website",
+      fallback: "/assets/placeholders/photographer.jpg"
     },
-    { 
-      id: 5, 
-      title: 'Commercial Office Flooring', 
-      category: 'Commercial', 
-      src: 'https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80', 
-      alt: 'Modern office with professional tiled flooring', 
-      description: 'Efficient and timely completion of a large-scale commercial flooring project, minimizing disruption.',
-      location: 'Liverpool, UK',
-      projectDate: '2024-05-12',
-      type: 'portfolio'
+    {
+      id: 5,
+      title: "Restaurant Menu App",
+      description: "Digital menu and ordering system for restaurants.",
+      category: "App Development",
+      imageUrl: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=800&q=80",
+      alt: "Restaurant menu app UI",
+      fallback: "/assets/placeholders/restaurant.jpg"
     },
-    { 
-      id: 6, 
-      title: 'Unique Shower Enclosure', 
-      category: 'Bathroom', 
-      src: 'https://images.unsplash.com/photo-1620626011761-996317b8d101?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80', 
-      alt: 'Shower with expertly installed mosaic tile walls', 
+    {
+      id: 6,
+      title: 'Unique Shower Enclosure',
+      category: 'Bathroom',
+      imageUrl: 'https://images.pexels.com/photos/1457842/pexels-photo-1457842.jpeg?auto=compress&w=800',
+      alt: 'Simple shower tiling in a real home',
       description: 'Expert craftsmanship in creating a custom design for a unique and functional shower enclosure.',
       location: 'Sheffield, UK',
       projectDate: '2024-06-18',
+      fallback: '/assets/placeholders/shower.jpg',
       type: 'portfolio'
     },
-    { 
-      id: 7, 
-      title: 'Restaurant Kitchen Walls', 
-      category: 'Commercial', 
-      src: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80', 
-      alt: 'Professional tiled walls in a commercial kitchen', 
+    {
+      id: 7,
+      title: 'Restaurant Kitchen Walls',
+      category: 'Commercial',
+      imageUrl: 'https://images.pexels.com/photos/1648768/pexels-photo-1648768.jpeg?auto=compress&w=800',
+      alt: 'Restaurant kitchen tiling with staff at work',
       description: 'Using premium, easy-to-clean tiles for a hygienic and durable commercial kitchen environment.',
       location: 'Newcastle, UK',
       projectDate: '2024-07-22',
+      fallback: '/assets/placeholders/kitchen.jpg',
       type: 'portfolio'
     },
-    { 
-      id: 8, 
-      title: 'Residential Hallway Floor', 
-      category: 'Floor', 
-      src: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80', 
-      alt: 'Beautiful tiled hallway floor in a modern home', 
+    {
+      id: 8,
+      title: 'Residential Hallway Floor',
+      category: 'Floor',
+      imageUrl: 'https://images.pexels.com/photos/279719/pexels-photo-279719.jpeg?auto=compress&w=800',
+      alt: 'Hallway tiling in a lived-in home',
       description: 'Flawless floor installation with attention to detail, ensuring a smooth and aesthetically pleasing finish.',
       location: 'Bristol, UK',
       projectDate: '2024-08-15',
+      fallback: '/assets/placeholders/hallway.jpg',
       type: 'portfolio'
     },
-    { 
-      id: 9, 
-      title: 'Heritage Restoration Project', 
-      category: 'Heritage', 
-      src: 'https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80', 
-      alt: 'Traditional Victorian tile pattern restoration', 
+    {
+      id: 9,
+      title: 'Heritage Restoration Project',
+      category: 'Heritage',
+      imageUrl: 'https://images.pexels.com/photos/236380/pexels-photo-236380.jpeg?auto=compress&w=800',
+      alt: 'Restoration tiling in a classic British home',
       description: 'Careful restoration of period features using historically accurate materials and techniques.',
       location: 'York, UK',
       projectDate: '2024-09-10',
+      fallback: '/assets/placeholders/heritage.jpg',
       type: 'portfolio'
     },
-    { 
-      id: 10, 
-      title: 'Luxury Hotel Entrance', 
-      category: 'Commercial', 
-      src: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80', 
-      alt: 'Grand hotel entrance with marble tile flooring', 
+    {
+      id: 10,
+      title: 'Luxury Hotel Entrance',
+      category: 'Commercial',
+      imageUrl: 'https://images.pexels.com/photos/210604/pexels-photo-210604.jpeg?auto=compress&w=800',
+      alt: 'Hotel entrance tiling in a welcoming setting',
       description: 'High-end commercial installation creating an impressive first impression with premium materials.',
       location: 'Edinburgh, UK',
       projectDate: '2024-10-05',
+      fallback: '/assets/placeholders/hotel.jpg',
       type: 'portfolio'
     },
-    { 
-      id: 11, 
-      title: 'Pool Area Tiling', 
-      category: 'Outdoor', 
-      src: 'https://images.unsplash.com/photo-1571896349842-33c89424de2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80', 
-      alt: 'Swimming pool area with non-slip safety tiles', 
+    {
+      id: 11,
+      title: 'Pool Area Tiling',
+      category: 'Outdoor',
+      imageUrl: 'https://images.pexels.com/photos/358636/pexels-photo-358636.jpeg?auto=compress&w=800',
+      alt: 'Poolside tiling in a family-friendly environment',
       description: 'Specialized pool-safe tiling ensuring both beauty and safety around water features.',
       location: 'Cardiff, UK',
       projectDate: '2024-11-12',
+      fallback: '/assets/placeholders/pool.jpg',
       type: 'portfolio'
     },
-    { 
-      id: 12, 
-      title: 'Geometric Pattern Design', 
-      category: 'Feature', 
-      src: 'https://images.unsplash.com/photo-1618220179428-22790b461013?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80', 
-      alt: 'Creative geometric tile pattern installation', 
+    {
+      id: 12,
+      title: 'Geometric Pattern Design',
+      category: 'Feature',
+      imageUrl: 'https://images.pexels.com/photos/130976/pexels-photo-130976.jpeg?auto=compress&w=800',
+      alt: 'Geometric tile pattern in a creative home project',
       description: 'Bespoke geometric designs showcasing our ability to create stunning visual features.',
       location: 'Glasgow, UK',
       projectDate: '2024-12-01',
+      fallback: '/assets/placeholders/geometric.jpg',
       type: 'portfolio'
-    },
+    }
   ];
-
-  const categories = ['All', ...new Set(projects.map(project => project.category))];
-  
-  const filteredProjects = selectedCategory === 'All' 
-    ? projects 
-    : projects.filter(project => project.category === selectedCategory);
-
-  const container = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
-  };
-
-  const item = {
-    hidden: { opacity: 0, y: 20 },
-    show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
-  };
+  // Category filtering logic
+  const [selectedCategory, setSelectedCategory] = useState('All');
+  const categories = ['All', ...new Set(portfolioData.map(project => project.category))];
+  const filteredProjects = selectedCategory === 'All'
+    ? portfolioData
+    : portfolioData.filter(project => project.category === selectedCategory);
 
   return (
     <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16 md:pt-32 md:pb-24">
@@ -184,15 +164,11 @@ const PortfolioPage = () => {
         transition={{ duration: 0.5, delay: 0.2 }}
         className="flex flex-wrap justify-center gap-3 mb-12"
       >
-        {categories.map((category) => (
+        {categories.map(category => (
           <button
             key={category}
+            className={`px-4 py-2 rounded-full font-medium border transition-colors duration-200 ${selectedCategory === category ? 'bg-blue-600 text-white border-blue-600' : 'bg-white text-gray-700 border-gray-300 hover:bg-blue-50'}`}
             onClick={() => setSelectedCategory(category)}
-            className={`px-4 py-2 rounded-full font-medium transition-all duration-300 ${
-              selectedCategory === category
-                ? 'bg-blue-600 text-white shadow-lg'
-                : 'bg-gray-100 text-gray-700 hover:bg-gray-200 hover:shadow-md'
-            }`}
           >
             {category}
           </button>
@@ -200,48 +176,9 @@ const PortfolioPage = () => {
       </motion.div>
 
       {/* Portfolio Gallery */}
-      <motion.div
-        variants={container}
-        initial="hidden"
-        animate="show"
-        key={selectedCategory} // Re-animate when category changes
-      >
-        <ImageGallery 
-          images={filteredProjects}
-          columns={3}
-          gap={8}
-          enableModal={true}
-          showLoadingStates={true}
-          className="mb-8"
-        />
-      </motion.div>
-
-      {/* Stats Section */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: 0.4 }}
-        className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8 text-center"
-      >
-        <div>
-          <div className="text-3xl font-bold text-blue-600 mb-2">{projects.length}+</div>
-          <div className="text-gray-600">Projects Completed</div>
-        </div>
-        <div>
-          <div className="text-3xl font-bold text-blue-600 mb-2">{categories.length - 1}</div>
-          <div className="text-gray-600">Service Categories</div>
-        </div>
-        <div>
-          <div className="text-3xl font-bold text-blue-600 mb-2">100%</div>
-          <div className="text-gray-600">Client Satisfaction</div>
-        </div>
-        <div>
-          <div className="text-3xl font-bold text-blue-600 mb-2">5+</div>
-          <div className="text-gray-600">Years Experience</div>
-        </div>
-      </motion.div>
+      <ImageGallery images={filteredProjects} columns={3} gap={6} />
     </div>
   );
-};
+}
 
 export default PortfolioPage;

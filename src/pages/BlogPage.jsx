@@ -11,54 +11,54 @@ const BlogPage = () => {
       title: 'Choosing the Right Tile for Your Bathroom', 
       excerpt: 'Factors to consider when selecting bathroom tiles: durability, water resistance, style, and budget.', 
       date: '2025-04-15', 
-      imageUrl: 'https://images.unsplash.com/photo-1584622650111-9da237120b5e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80', 
-      imageAlt: 'Elegant bathroom with luxury marble tiles', 
-      imageDesc: 'A beautifully designed bathroom featuring premium marble tiles, demonstrating the importance of material selection.' 
+      imageUrl: 'https://images.pexels.com/photos/624015/pexels-photo-624015.jpeg?auto=compress&w=800', 
+      imageAlt: 'Modern bathroom tiling with clean lines and neutral colors', 
+      imageDesc: 'A real bathroom showing practical tile choices and installation.' 
     },
     { 
       id: 2, 
       title: 'Grout Guide: Epoxy vs. Cement', 
       excerpt: 'Understanding the pros and cons of different grout types for longevity and maintenance.', 
       date: '2025-03-28', 
-      imageUrl: 'https://images.unsplash.com/photo-1556912172-45b7abe8b7e1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80', 
-      imageAlt: 'Close-up of professional grouting work', 
-      imageDesc: 'Professional tiler applying grout between tiles, showing the precision required for quality installation.' 
+      imageUrl: 'https://images.pexels.com/photos/48889/pexels-photo-48889.jpeg?auto=compress&w=800', 
+      imageAlt: 'Hands-on grouting work with tiling tools', 
+      imageDesc: 'A tiler applying grout in a real project.' 
     },
     { 
       id: 3, 
       title: 'Tiling Trends for 2025', 
       excerpt: 'Explore the latest styles: large formats, bold patterns, natural textures, and sustainable options.', 
       date: '2025-03-10', 
-      imageUrl: 'https://images.unsplash.com/photo-1618220179428-22790b461013?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80', 
-      imageAlt: 'Modern geometric tile pattern design', 
-      imageDesc: 'Contemporary geometric tile patterns showcasing the latest trends in interior design for 2025.' 
+      imageUrl: 'https://images.pexels.com/photos/130976/pexels-photo-130976.jpeg?auto=compress&w=800', 
+      imageAlt: 'Geometric tile pattern in a creative home project', 
+      imageDesc: 'Trendy geometric tiling in a real home.' 
     },
     { 
       id: 4, 
       title: 'Maintenance Tips for Long-Lasting Tiles', 
       excerpt: 'How to keep your tiles looking pristine for years with proper cleaning and care routines.', 
       date: '2025-02-20', 
-      imageUrl: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80', 
-      imageAlt: 'Cleaning supplies for tile maintenance', 
-      imageDesc: 'Professional cleaning equipment and supplies used for maintaining tiled surfaces.' 
+      imageUrl: 'https://images.pexels.com/photos/66134/pexels-photo-66134.jpeg?auto=compress&w=800', 
+      imageAlt: 'Tile cleaning with simple tools and supplies', 
+      imageDesc: 'Practical cleaning of tiles in a home setting.' 
     },
     { 
       id: 5, 
       title: 'The Benefits of Porcelain vs Ceramic Tiles', 
       excerpt: 'Compare durability, cost, and applications to make the best choice for your project.', 
       date: '2025-02-05', 
-      imageUrl: 'https://images.unsplash.com/photo-1600566752734-c3d7ba62c2bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80', 
-      imageAlt: 'Various tile samples showing different materials', 
-      imageDesc: 'Collection of porcelain and ceramic tile samples demonstrating different textures and finishes.' 
+      imageUrl: 'https://images.pexels.com/photos/279719/pexels-photo-279719.jpeg?auto=compress&w=800', 
+      imageAlt: 'Porcelain and ceramic tile samples in a real project', 
+      imageDesc: 'Tile samples for comparison in a practical setting.' 
     },
     { 
       id: 6, 
       title: 'Planning Your Kitchen Backsplash Project', 
       excerpt: 'Step-by-step guide to designing and installing the perfect kitchen backsplash.', 
       date: '2025-01-18', 
-      imageUrl: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80', 
-      imageAlt: 'Modern kitchen with subway tile backsplash', 
-      imageDesc: 'Beautiful modern kitchen featuring a classic subway tile backsplash installation.' 
+      imageUrl: 'https://images.pexels.com/photos/1648768/pexels-photo-1648768.jpeg?auto=compress&w=800', 
+      imageAlt: 'Kitchen backsplash tiling in a real home', 
+      imageDesc: 'A kitchen with a visible, practical backsplash.' 
     }
   ];
 
